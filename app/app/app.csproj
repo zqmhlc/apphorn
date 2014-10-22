@@ -50,42 +50,21 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="backbuttonmultipage\index.html" />
-    <Content Include="backbuttonmultipage\sample2.html" />
-    <Content Include="backbuttonmultipage\sample3.html" />
-    <Content Include="backgroundcolor\index.html" />
-    <Content Include="background\index.html" />
-    <Content Include="background\index2.html" />
-    <Content Include="basicauth\index.html" />
     <Content Include="cordova.android.js" />
     <Content Include="cordova.js" />
     <Content Include="css\index.css" />
     <Content Include="default.aspx" />
     <Content Include="dy.htm" />
-    <Content Include="fullscreen\index.html" />
-    <Content Include="htmlnotfound\error.html" />
-    <Content Include="iframe\index.html" />
-    <Content Include="iframe\index2.html" />
     <Content Include="img\logo.png" />
     <Content Include="img\smalllogo.png" />
     <Content Include="img\splashscreen.png" />
     <Content Include="img\storelogo.png" />
     <Content Include="index.html" />
-    <Content Include="jqmtabbackbutton\index.html" />
-    <Content Include="jqmtabbackbutton\tab1.html" />
-    <Content Include="jqmtabbackbutton\tab2.html" />
-    <Content Include="jqmtabbackbutton\tab3.html" />
     <Content Include="jquery-1.7.2.min.js" />
     <Content Include="js\index.js" />
-    <Content Include="lifecycle\index.html" />
-    <Content Include="lifecycle\index2.html" />
-    <Content Include="main.js" />
     <Content Include="master.css" />
-    <Content Include="menus\index.html" />
     <Content Include="news.aspx" />
-    <Content Include="splashscreen\index.html" />
     <Content Include="test.aspx" />
-    <Content Include="userwebview\index.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -93,9 +72,6 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="whitelist\index.html" />
-    <Content Include="whitelist\index2.html" />
-    <Content Include="xhr\index.html" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="default.aspx.cs">
