@@ -1,0 +1,4 @@
+E:\test\git\apphorn\app\app\bin\app.dll
+E:\test\git\apphorn\app\app\bin\app.pdb
+E:\test\git\apphorn\app\app\obj\Debug\app.dll
+E:\test\git\apphorn\app\app\obj\Debug\app.pdb

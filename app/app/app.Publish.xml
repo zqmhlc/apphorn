@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="C:\Users\mycos\Desktop\fb" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="配置文件1" publishMethod="FileSystem" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="jquery-1.7.2.min.js" publishTime="10/08/2014 16:46:41" />
+    <file relUrl="bin/app.dll" publishTime="10/11/2014 13:58:14" />
+    <file relUrl="bin/app.pdb" publishTime="10/11/2014 13:58:14" />
+    <file relUrl="Web.config" publishTime="08/21/2014 11:40:36" />
+    <file relUrl="default.aspx" publishTime="10/10/2014 13:47:19" />
+    <file relUrl="Handler1.ashx" publishTime="10/08/2014 16:10:55" />
+    <file relUrl="news.aspx" publishTime="08/29/2014 16:33:08" />
+    <file relUrl="test.aspx" publishTime="10/10/2014 13:38:27" />
+  </publishProfile>
+</publishData>

@@ -2,28 +2,52 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using System.Reflection;
 
 namespace app
 {
-    public partial class _default : System.Web.UI.Page
+    /// <summary>
+    /// Handler1 的摘要说明
+    /// </summary>
+    public class Handler1 : IHttpHandler
     {
-        protected void Page_Load(object sender, EventArgs e)
+
+        public void ProcessRequest(HttpContext context)
         {
-            
+            string str_action = "";
+            string p_ret = "";
+
+            try
+            {
+                str_action = context.Request["a"].ToString();
+
+                MethodInfo menthinfo = this.GetType().GetMethod(str_action, BindingFlags.Instance | BindingFlags.Public | BindingFlags.IgnoreCase);
+                if (menthinfo != null)
+                {
+                    p_ret = (string)menthinfo.Invoke(this, new object[] { context });
+                }
+            }
+            catch 
+            {
+                p_ret = "nosession-2";                
+            }
+            context.Response.Write(p_ret);
+            context.Response.End();
+        }        
+
+        public bool IsReusable
+        {
+            get
+            {
+                return false;
+            }
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        public string rfe(HttpContext context)
         {
-            string url = TextBox1.Text;
-            RemoteFileExists(url);
-            rb.Checked = true;
-        }
-
-        public bool RemoteFileExists(string fileUrl)
-        {
+            string fileUrl = context.Request["url"].ToString();
             bool result = false;//下载结果
+            string html = string.Empty;
 
             System.Net.WebResponse response = null;
             try
@@ -61,38 +85,38 @@ namespace app
                     System.IO.Stream sw = response.GetResponseStream();
                     System.IO.StreamReader streamReader = new System.IO.StreamReader(sw, enc);
                     //将流转换为字符串
-                    string html = streamReader.ReadToEnd();
+                    html = streamReader.ReadToEnd();
                     //ychtml.InnerText = html;
                     string qz = "http://zqmhlc.apphb.com";
-                    Uri un=new Uri(fileUrl);
-                    string thurl = un.Scheme+"://"+un.Host;
+                    Uri un = new Uri(fileUrl);
+                    string thurl = un.Scheme + "://" + un.Host;
                     html = html.Replace(qz, thurl);
-                    html = html.Replace("href=\"/", "href=\""+thurl+"/");
+                    html = html.Replace("href=\"/", "href=\"" + thurl + "/");
                     html = html.Replace("href='/", "href='" + thurl + "/");
                     html = html.Replace("href=/", "href=" + thurl + "/");
                     //html = html.Replace("http://zqmhlc.apphb.com", fileUrl);//http://localhost:61496
-                    html += "<script>$('a').click(function(){if(this.href.substring(0,1)=='/'){this.href='"+thurl+"'+this.href;}$('#TextBox1').val(this.href.replace('"+qz+"','" + thurl + "'));$('#Button1').click();return false;});</script>";  
-                    divHtml.InnerHtml = html;
+                    html += "<script>$('a').click(function(){if(this.href.substring(0,1)=='/'){this.href='" + thurl + "'+this.href;}$('#txturl').val(this.href.replace('" + qz + "','" + thurl + "'));$('#btn').click();return false;});</script>";                    
                     streamReader.Close();
                     sw.Close();
+                    sw.Dispose();
                 }
 
             }
             catch (Exception ex)
             {
                 result = false;
-                divHtml.InnerText = ex.Message;
+                //divHtml.InnerText = ex.Message;
             }
             finally
             {
                 if (response != null)
                 {
-                    response.Close();
+                    response.Close();                    
                 }
             }
 
 
-            return result;
+            return html;
         }
     }
 }
