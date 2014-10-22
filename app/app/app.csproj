@@ -50,9 +50,17 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="cordova.js" />
+    <Content Include="css\index.css" />
     <Content Include="default.aspx" />
     <Content Include="dy.htm" />
+    <Content Include="img\logo.png" />
+    <Content Include="img\smalllogo.png" />
+    <Content Include="img\splashscreen.png" />
+    <Content Include="img\storelogo.png" />
+    <Content Include="index.html" />
     <Content Include="jquery-1.7.2.min.js" />
+    <Content Include="js\index.js" />
     <Content Include="news.aspx" />
     <Content Include="test.aspx" />
     <Content Include="Web.config" />
