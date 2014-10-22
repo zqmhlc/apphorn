@@ -77,7 +77,7 @@ function setLocation() {
 // 获取位置信息成功时调用的回调函数
 function onSuccess(position) {
     try {
-        var element = document.getElementById('geolocation');
+        var element = document.getElementById('deviceProperties');
         element.innerHTML = 'Latitude: ' + position.coords.latitude + '<br />' +
 							'Longitude: ' + position.coords.longitude + '<br />' +
 							'Altitude: ' + position.coords.altitude + '<br />' +
