@@ -44,8 +44,9 @@ var app = {
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
 
-        console.log('Received Event: ' + id);        
+        console.log('Received Event: ' + id);
         setDeviceInfo();
+        setLocation();
     }
 };
 
@@ -61,6 +62,37 @@ function setDeviceInfo() {
                             'Device Model: ' + device.model + '<br />' +
                             'Device Version: ' + device.version + '<br />';
     } catch (e) {
-        alert('error');
+        alert('device error');
     }
+}
+
+function setLocation() {
+    try {
+        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    } catch (e) {
+        alert('loc err');
+    }
+}
+
+// 获取位置信息成功时调用的回调函数
+function onSuccess(position) {
+    try {
+        var element = document.getElementById('geolocation');
+        element.innerHTML = 'Latitude: ' + position.coords.latitude + '<br />' +
+							'Longitude: ' + position.coords.longitude + '<br />' +
+							'Altitude: ' + position.coords.altitude + '<br />' +
+							'Accuracy: ' + position.coords.accuracy + '<br />' +
+							'Altitude Accuracy: ' + position.coords.altitudeAccuracy + '<br />' +
+							'Heading: ' + position.coords.heading + '<br />' +
+							'Speed: ' + position.coords.speed + '<br />' +
+							'Timestamp: ' + new Date(position.timestamp) + '<br />';
+    } catch (e) {
+     alert('position error');
+    }
+}
+
+// onError回调函数接收一个PositionError对象
+function onError(error) {
+    alert('code: ' + error.code + '\n' +
+			'message: ' + error.message + '\n');
 }
