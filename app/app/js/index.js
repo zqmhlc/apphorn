@@ -44,20 +44,23 @@ var app = {
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
 
-        console.log('Received Event: ' + id);
-        alert('2');
+        console.log('Received Event: ' + id);        
         setDeviceInfo();
-        alert('1');
     }
 };
 
 
 function setDeviceInfo() {
+    alert(1);
     var element = document.getElementById('deviceProperties');
-    element.innerHTML = 'Device Name: ' + device.name + '<br />' +
+    try {
+        element.innerHTML = 'Device Name: ' + device.name + '<br />' +
                             'Device Cordova: ' + device.cordova + '<br />' +
                             'Device Platform: ' + device.platform + '<br />' +
                             'Device UUID: ' + device.uuid + '<br />' +
                             'Device Model: ' + device.model + '<br />' +
                             'Device Version: ' + device.version + '<br />';
+    } catch (e) {
+        alert('error');
+    }
 }
